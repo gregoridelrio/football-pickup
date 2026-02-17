@@ -58,7 +58,30 @@ class User extends Authenticatable
         return Str::of($this->name)
             ->explode(' ')
             ->take(2)
-            ->map(fn ($word) => Str::substr($word, 0, 1))
+            ->map(fn($word) => Str::substr($word, 0, 1))
             ->implode('');
     }
+
+    public function organizedMatches()
+    {
+        return $this->hasMany(FootballMatch::class, 'organizer_id');
+    }
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class);
+    }
+
+    public function joinedMatches()
+    {
+        return $this->belongsToMany(FootballMatch::class, 'registrations')
+            ->withPivot('status')
+            ->withTimestamps();
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
+// ejecutar php artisan migrate
