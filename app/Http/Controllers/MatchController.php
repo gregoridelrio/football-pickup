@@ -12,4 +12,9 @@ class MatchController extends Controller
         $matches = FootballMatch::orderBy('starts_at', 'desc')->get();
         return view('matches.index', compact('matches'));
     }
+
+    public function show(FootballMatch $match)
+    {
+        return view('matches.show', compact('match'));
+    }
 }

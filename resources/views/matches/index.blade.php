@@ -22,7 +22,11 @@
                         <p><strong>Jugadores:</strong> {{ $match->max_players }}</p>
                         <p><strong>Precio:</strong> {{ $match->price == 0 ? 'Gratis' : $match->price . '€' }}</p>
                         <p><strong>Estado:</strong> {{ $match->status }}</p>
+                        <div class="mt-4">
+                            <a href="{{ route('matches.show', $match) }}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Ver detalle</a>
+                        </div>
                     </div>
+                    
                 </div>
             @endforeach
         </div>
