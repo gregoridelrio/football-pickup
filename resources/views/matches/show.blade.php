@@ -21,12 +21,7 @@
                     <p><strong>Nivel:</strong> {{ $match->required_level }}</p>
                     <p><strong>Precio:</strong> {{ $match->price == 0 ? 'Gratis' : $match->price . '€' }}</p>
                     <p><strong>Estado:</strong> 
-                        <span class="inline-block px-2 py-1 text-sm rounded
-                            @if($match->status === 'open') bg-green-100 text-green-800
-                            @elseif($match->status === 'full') bg-yellow-100 text-yellow-800
-                            @elseif($match->status === 'cancelled') bg-red-100 text-red-800
-                            @else bg-gray-100 text-gray-800
-                            @endif">
+                        <span class="inline-block px-2 py-1 text-sm rounded">
                             {{ ucfirst($match->status) }}
                         </span>
                     </p>
