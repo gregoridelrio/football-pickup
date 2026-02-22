@@ -3,6 +3,11 @@
 @section('title', 'Partidos')
 
 @section('content')
+    @if(session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            {{ session('success') }}
+        </div>
+    @endif
     <h1 class="text-3xl font-bold mb-6">Partidos Disponibles</h1>
 
     @if($matches->isEmpty())

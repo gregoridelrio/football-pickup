@@ -15,6 +15,9 @@
             
             <div class="space-x-4">
                 @auth
+                    <a href="{{ route('matches.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        Crear partido
+                    </a>
                     <span class="text-gray-600">Hola, {{ auth()->user()->name }}</span>
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
