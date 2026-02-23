@@ -45,4 +45,15 @@ class MatchController extends Controller
 
         return redirect()->route('home')->with('success', 'Partido creado correctamente');
     }
+
+    public function destroy(FootballMatch $match)
+    {
+        if ($match->organizer_id !== auth()->id()) {
+            abort(403, 'No tienes permiso para eliminar este partido');
+        }
+
+        $match->delete();
+
+        return redirect()->route('home')->with('success', 'Partido eliminado correctamente');
+    }
 }

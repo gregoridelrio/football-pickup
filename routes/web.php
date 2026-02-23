@@ -9,6 +9,7 @@ Route::get('/', [MatchController::class, 'index'])->name('home');
 Route::middleware('auth')->group(function () {
     Route::get('/matches/create', [MatchController::class, 'create'])->name('matches.create');
     Route::post('/matches', [MatchController::class, 'store'])->name('matches.store');
+    Route::delete('/matches/{match}', [MatchController::class, 'destroy'])->name('matches.destroy');
 });
 
 Route::get('/matches/{match}', [MatchController::class, 'show'])->name('matches.show');
