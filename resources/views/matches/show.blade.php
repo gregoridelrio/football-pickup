@@ -4,20 +4,26 @@
 
 @section('content')
 
-    <div class="mb-6">
-        <a href="{{ route('home') }}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Volver</a>
-        @auth
-            @if($match->organizer_id === auth()->id())
-                <form method="POST" action="{{ route('matches.destroy', $match) }}" class="inline">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
-                        Eliminar partido
-                    </button>
-                </form>
-            @endif
-        @endauth
-    </div>
+<div class="mb-6 flex gap-4 items-center">
+    <a href="{{ route('home') }}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Volver</a>
+    @auth
+        @if($match->organizer_id === auth()->id())
+            <a href="{{ route('matches.edit', $match) }}" 
+                class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
+                Editar
+            </a>
+            
+            <form method="POST" action="{{ route('matches.destroy', $match) }}" class="inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit" 
+                    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                    Eliminar
+                </button>
+            </form>
+        @endif
+    @endauth
+</div>
     <div class="bg-white p-6 rounded border border-gray-200">
         <h1 class="text-3xl font-bold mb-6">{{ $match->description }}</h1>
 
