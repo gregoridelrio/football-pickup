@@ -34,7 +34,7 @@ class FootballMatch extends Model
 
     public function registrations()
     {
-        return $this->hasMany(Registration::class);
+        return $this->hasMany(Registration::class, 'match_id');
     }
 
     public function comments()
