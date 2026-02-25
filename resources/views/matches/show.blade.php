@@ -101,5 +101,8 @@
     @endauth
 
 </div>
+<div class="bg-white p-6 rounded border border-gray-200 mt-6">
+    @livewire('match-comments', ['match' => $match])
+</div>
 
 @endsection
