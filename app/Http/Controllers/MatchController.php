@@ -85,11 +85,7 @@ class MatchController extends Controller
             'city' => 'required|string|max:100',
             'status' => 'required|in:open,full,cancelled,finished',
         ]);
-        dd([
-            'todos_los_datos' => $request->all(),
-            'status_especifico' => $request->status,
-            'match_actual' => $match->status,
-        ]);
+
         $match->update($validated);
 
         return redirect()->route('matches.edit', $match)->with('success', 'Partido actualizado correctamente');
