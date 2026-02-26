@@ -23,6 +23,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'skill_level',
+        'favourite_position',
     ];
 
     /**
@@ -84,4 +87,3 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 }
-// ejecutar php artisan migrate

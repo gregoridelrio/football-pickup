@@ -21,6 +21,7 @@
                     class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                     Crear partido
                 </a>
+                <a href="{{ route('dashboard') }}" class="text-gray-600 hover:text-gray-800">Mi perfil</a>
                 <form method="POST" action="{{ route('logout') }}" class="inline">
                     @csrf
                     <button type="submit" class="text-blue-600 hover:text-blue-800">
